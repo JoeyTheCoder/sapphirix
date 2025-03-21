@@ -241,34 +241,139 @@
         <div class="container mx-auto px-4">
           <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center animate-scaleIn">My Projects</h2>
           
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Project 1 -->
-            <div class="rounded-lg p-6 transition animate-fadeInUp delay-100" style="background-color: var(--sapphire-700); hover:background-color: var(--sapphire-600);">
-              <h4 class="font-medium text-xl mb-3">Project Name</h4>
-              <p class="text-gray-300 mb-4">Full-stack web application</p>
-              <a href="#" class="text-blue-300 flex items-center">View Project <span class="ml-1">→</span></a>
+            <div class="rounded-xl overflow-hidden shadow-lg animate-fadeInUp delay-100 group transition-all duration-300 hover:-translate-y-2" style="background-color: var(--sapphire-700);">
+              <div class="h-52 overflow-hidden">
+                <img src="/src/img/stackmaker-preview.PNG" alt="Project 1 Screenshot" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="p-6">
+                <h4 class="font-bold text-xl mb-2">StackMaker</h4>
+                <p class="text-gray-300 mb-4 text-sm">A responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and dark mode.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">React</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Tailwind</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Responsive</span>
+                </div>
+                <a href="#" class="inline-flex items-center text-blue-300 text-sm font-medium hover:text-blue-100 transition-colors">
+                  View Project <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
             </div>
             
             <!-- Project 2 -->
-            <div class="rounded-lg p-6 transition animate-fadeInUp delay-200" style="background-color: var(--sapphire-700); hover:background-color: var(--sapphire-600);">
-              <h4 class="font-medium text-xl mb-3">Project Name</h4>
-              <p class="text-gray-300 mb-4">Mobile application</p>
-              <a href="#" class="text-blue-300 flex items-center">View Project <span class="ml-1">→</span></a>
+            <div class="rounded-xl overflow-hidden shadow-lg animate-fadeInUp delay-200 group transition-all duration-300 hover:-translate-y-2" style="background-color: var(--sapphire-700);">
+              <div class="h-52 overflow-hidden">
+                <img src="/src/img/project2.jpg" alt="Project 2 Screenshot" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="p-6">
+                <h4 class="font-bold text-xl mb-2">Task Management App</h4>
+                <p class="text-gray-300 mb-4 text-sm">A full-stack application that helps users organize tasks, set deadlines, and track progress with data visualization.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Vue.js</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Node.js</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">MongoDB</span>
+                </div>
+                <a href="#" class="inline-flex items-center text-blue-300 text-sm font-medium hover:text-blue-100 transition-colors">
+                  View Project <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
             </div>
             
             <!-- Project 3 -->
-            <div class="rounded-lg p-6 transition animate-fadeInUp delay-300" style="background-color: var(--sapphire-700); hover:background-color: var(--sapphire-600);">
-              <h4 class="font-medium text-xl mb-3">Project Name</h4>
-              <p class="text-gray-300 mb-4">Game development</p>
-              <a href="#" class="text-blue-300 flex items-center">View Project <span class="ml-1">→</span></a>
+            <div class="rounded-xl overflow-hidden shadow-lg animate-fadeInUp delay-300 group transition-all duration-300 hover:-translate-y-2" style="background-color: var(--sapphire-700);">
+              <div class="h-52 overflow-hidden">
+                <img src="/src/img/project3.jpg" alt="Project 3 Screenshot" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="p-6">
+                <h4 class="font-bold text-xl mb-2">E-commerce Platform</h4>
+                <p class="text-gray-300 mb-4 text-sm">A modern e-commerce solution with product filtering, cart management, and secure payment integration.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Next.js</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Stripe</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Firebase</span>
+                </div>
+                <a href="#" class="inline-flex items-center text-blue-300 text-sm font-medium hover:text-blue-100 transition-colors">
+                  View Project <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
             </div>
             
             <!-- Project 4 -->
-            <div class="rounded-lg p-6 transition animate-fadeInUp delay-400" style="background-color: var(--sapphire-700); hover:background-color: var(--sapphire-600);">
-              <h4 class="font-medium text-xl mb-3">Project Name</h4>
-              <p class="text-gray-300 mb-4">AI experiment</p>
-              <a href="#" class="text-blue-300 flex items-center">View Project <span class="ml-1">→</span></a>
+            <div class="rounded-xl overflow-hidden shadow-lg animate-fadeInUp delay-400 group transition-all duration-300 hover:-translate-y-2" style="background-color: var(--sapphire-700);">
+              <div class="h-52 overflow-hidden">
+                <img src="/src/img/project4.jpg" alt="Project 4 Screenshot" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="p-6">
+                <h4 class="font-bold text-xl mb-2">AI Image Generator</h4>
+                <p class="text-gray-300 mb-4 text-sm">An application that uses machine learning to generate custom artwork based on text prompts from users.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Python</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">TensorFlow</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Flask</span>
+                </div>
+                <a href="#" class="inline-flex items-center text-blue-300 text-sm font-medium hover:text-blue-100 transition-colors">
+                  View Project <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
             </div>
+            
+            <!-- Project 5 -->
+            <div class="rounded-xl overflow-hidden shadow-lg animate-fadeInUp delay-500 group transition-all duration-300 hover:-translate-y-2" style="background-color: var(--sapphire-700);">
+              <div class="h-52 overflow-hidden">
+                <img src="/src/img/project5.jpg" alt="Project 5 Screenshot" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="p-6">
+                <h4 class="font-bold text-xl mb-2">Weather Dashboard</h4>
+                <p class="text-gray-300 mb-4 text-sm">A real-time weather application with location-based forecasts, interactive maps, and historical data analysis.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">JavaScript</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Weather API</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Chart.js</span>
+                </div>
+                <a href="#" class="inline-flex items-center text-blue-300 text-sm font-medium hover:text-blue-100 transition-colors">
+                  View Project <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="rounded-xl overflow-hidden shadow-lg animate-fadeInUp delay-600 group transition-all duration-300 hover:-translate-y-2" style="background-color: var(--sapphire-700);">
+              <div class="h-52 overflow-hidden">
+                <img src="/src/img/project6.jpg" alt="Project 6 Screenshot" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="p-6">
+                <h4 class="font-bold text-xl mb-2">Multiplayer Game</h4>
+                <p class="text-gray-300 mb-4 text-sm">A browser-based multiplayer game with real-time interaction, custom characters, and leaderboards.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Phaser.js</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Socket.io</span>
+                  <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Express</span>
+                </div>
+                <a href="#" class="inline-flex items-center text-blue-300 text-sm font-medium hover:text-blue-100 transition-colors">
+                  View Project <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- View All Projects Button -->
+          <div class="mt-12 text-center animate-fadeInUp delay-700">
+            <a href="#" class="inline-block px-8 py-3 rounded-full font-medium transition-all duration-300 border-2 border-white hover:bg-white hover:text-black">
+              View All Projects
+            </a>
           </div>
         </div>
       </section>
