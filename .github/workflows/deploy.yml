@@ -21,6 +21,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Ensure public directory exists
+        run: mkdir -p public
+
+      - name: Create project-index.json
+        run: |
+          echo '["stackmaker.json", "soulo.json", "game-ratings.json"]' > public/project-index.json
+
       - name: Build
         run: npm run build
 
