@@ -46,22 +46,21 @@ async function fetchProjects(): Promise<Project[]> {
   } catch (error) {
     console.error('Error loading projects:', error);
     
-    // Update image paths in fallback data too
+    // All image paths should be in /img/ not /src/img/
     return [
       {
         id: 1,
         title: "StackMaker",
         description: "StackMaker is a responsive portfolio website built with React and Tailwind CSS. It features smooth animations, dark mode support, and a modern design that showcases developer skills effectively.",
         fullDescription: "StackMaker is a responsive portfolio website built with React and Tailwind CSS. It features smooth animations, dark mode support, and a modern design that showcases developer skills effectively.",
-        thumbnail: "/img/stackmaker-preview.PNG",
+        thumbnail: "/img/stackmaker/stackmaker-1.PNG",
         images: [
-          "/img/stackmaker-preview.PNG",
-          "/img/project2.jpg",
-          "/img/project3.jpg",
-          "/img/project4.jpg",
-          "/img/project5.jpg"
+          "/img/stackmaker/stackmaker-1.PNG",
+          "/img/stackmaker/stackmaker-2.PNG",
+          "/img/stackmaker/stackmaker-3.PNG"
         ],
-        technologies: ["React", "Tailwind CSS", "JavaScript", "Responsive Design", "Firebase"],
+        technologies: ["Angular", "FastAPI", "OR-Tools"],
+        colorTheme: "emerald",
         stats: {
           devTime: "2 months",
           role: "Full Stack Developer",
@@ -69,8 +68,8 @@ async function fetchProjects(): Promise<Project[]> {
           status: "Active"
         },
         links: {
-          live: "https://example.com/stackmaker",
-          github: "https://github.com/yourusername/stackmaker"
+          live: "https://stackmaker.example.com",
+          github: "https://github.com/JoeyTheCoder/stackmaker"
         }
       },
       // You can add more fallback projects here

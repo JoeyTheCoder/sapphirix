@@ -22,7 +22,14 @@ jobs:
         run: npm ci
 
       - name: Ensure public directory exists
-        run: mkdir -p public
+        run: mkdir -p public/img
+
+      - name: Copy images for build
+        run: |
+          # Make the img directory if it doesn't exist
+          mkdir -p public/img
+          # Copy all images from src/img to public/img
+          cp -R src/img/* public/img/ || echo "No images to copy"
 
       - name: Create project-index.json
         run: |
@@ -49,5 +56,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             # Add any commands to run on the server after deployment
-            # For example, restart services or clear cache
             echo "Deployment completed at $(date)"
