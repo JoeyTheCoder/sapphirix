@@ -25,16 +25,16 @@ interface Project {
 // Fetch projects data from JSON files in the projects directory
 async function fetchProjects(): Promise<Project[]> {
   try {
-    // First, fetch the index file that contains the list of project files
-    const indexResponse = await fetch('./project-index.json');
+    // Use public path for index file
+    const indexResponse = await fetch('/project-index.json');
     if (!indexResponse.ok) {
       throw new Error(`HTTP error! Status: ${indexResponse.status}`);
     }
     const projectFiles = await indexResponse.json();
     
-    // Fetch each project file listed in the index
+    // Fix path to load from public directory instead of src
     const projectPromises = projectFiles.map(async (filename: string) => {
-      const response = await fetch(`/src/projects/${filename}`);
+      const response = await fetch(`/projects/${filename}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -46,21 +46,20 @@ async function fetchProjects(): Promise<Project[]> {
   } catch (error) {
     console.error('Error loading projects:', error);
     
-    // Fallback to use the hardcoded data if fetch fails
-    // This is temporary until you create the JSON file
+    // Update image paths in fallback data too
     return [
       {
         id: 1,
         title: "StackMaker",
         description: "StackMaker is a responsive portfolio website built with React and Tailwind CSS. It features smooth animations, dark mode support, and a modern design that showcases developer skills effectively.",
         fullDescription: "StackMaker is a responsive portfolio website built with React and Tailwind CSS. It features smooth animations, dark mode support, and a modern design that showcases developer skills effectively.",
-        thumbnail: "/src/img/stackmaker-preview.PNG",
+        thumbnail: "/img/stackmaker-preview.PNG",
         images: [
-          "/src/img/stackmaker-preview.PNG",
-          "/src/img/project2.jpg",
-          "/src/img/project3.jpg",
-          "/src/img/project4.jpg",
-          "/src/img/project5.jpg"
+          "/img/stackmaker-preview.PNG",
+          "/img/project2.jpg",
+          "/img/project3.jpg",
+          "/img/project4.jpg",
+          "/img/project5.jpg"
         ],
         technologies: ["React", "Tailwind CSS", "JavaScript", "Responsive Design", "Firebase"],
         stats: {
