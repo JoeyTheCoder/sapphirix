@@ -1,7 +1,7 @@
 {
   "id": 1,
   "title": "StackMaker",
-  "description": "A responsive portfolio website built with React and Tailwind CSS...",
+  "description": "A Webapp designed to help League of Legends players",
   "fullDescription": "Longer, more detailed description for the modal...",
   "thumbnail": "/img/stackmaker/stackmaker-1.PNG",
   "colorTheme": "emerald",
