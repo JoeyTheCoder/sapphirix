@@ -22,20 +22,6 @@ interface Project {
   };
 }
 
-// Add this helper function near the top of your main.ts file
-function getImagePath(path: string): string {
-  // Check if we're in development mode
-  const isDev = import.meta.env.DEV;
-  
-  // If the path already starts with /src/ or doesn't start with /img/, return it as is
-  if (path.startsWith('/src/') || !path.startsWith('/img/')) {
-    return path;
-  }
-  
-  // In development, prepend /src to /img/ paths
-  return isDev ? `/src${path}` : path;
-}
-
 // Fetch projects data from JSON files in the projects directory
 async function fetchProjects(): Promise<Project[]> {
   try {
@@ -106,13 +92,10 @@ function createProjectCard(project: Project, index: number): HTMLElement {
   card.dataset.projectId = project.id.toString();
   card.style.animationDelay = `${delay}ms`;
   
-  // Use the helper function to get the correct image path
-  const thumbnailPath = getImagePath(project.thumbnail);
-  
   // Create card content
   card.innerHTML = `
     <div class="screenshot-container relative bg-black/20 overflow-hidden aspect-[16/9] flex items-center justify-center">
-      <img src="${thumbnailPath}" alt="${project.title} Screenshot" class="w-full h-full object-cover">
+      <img src="${project.thumbnail}" alt="${project.title} Screenshot" class="w-full h-full object-cover">
       <div class="absolute inset-0 opacity-0 group-hover:opacity-100 flex items-center justify-center bg-black/60 transition-opacity duration-300">
         <button class="px-4 py-2 bg-white/90 text-black rounded-full text-sm font-medium transform transition">
           View Details
@@ -203,9 +186,6 @@ async function openProjectModal(projectId: number): Promise<void> {
     if (modalUpdated) modalUpdated.textContent = project.stats.lastUpdated;
     if (modalStatus) modalStatus.textContent = project.stats.status;
     
-    // Use the helper function to get the correct image path
-    const thumbnailPath = getImagePath(project.thumbnail);
-    
     // Add technologies
     if (modalTechnologies) {
       modalTechnologies.innerHTML = '';
@@ -224,7 +204,7 @@ async function openProjectModal(projectId: number): Promise<void> {
     
     // Set main image
     if (modalMainImage) {
-      modalMainImage.src = thumbnailPath;
+      modalMainImage.src = project.thumbnail;
       modalMainImage.alt = `${project.title} Screenshot`;
     }
     
@@ -234,11 +214,7 @@ async function openProjectModal(projectId: number): Promise<void> {
       project.images.forEach((image, index) => {
         const thumbnail = document.createElement('div');
         thumbnail.className = 'gallery-thumbnail h-20 rounded-lg overflow-hidden cursor-pointer';
-        
-        // Use the helper function to get the correct image path
-        const correctedPath = getImagePath(image);
-        
-        thumbnail.innerHTML = `<img src="${correctedPath}" alt="${project.title} Gallery Image ${index + 1}" class="w-full h-full object-cover">`;
+        thumbnail.innerHTML = `<img src="${image}" alt="${project.title} Gallery Image ${index + 1}" class="w-full h-full object-cover">`;
         
         // Set first image as active
         if (index === 0) {
@@ -247,7 +223,7 @@ async function openProjectModal(projectId: number): Promise<void> {
         
         // Change main image when thumbnail is clicked
         thumbnail.addEventListener('click', function() {
-          if (modalMainImage) modalMainImage.src = correctedPath;
+          if (modalMainImage) modalMainImage.src = image;
           
           // Update active thumbnail
           document.querySelectorAll('.gallery-thumbnail').forEach(thumb => {
