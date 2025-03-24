@@ -3,12 +3,12 @@
   "title": "StackMaker",
   "description": "A responsive portfolio website built with React and Tailwind CSS...",
   "fullDescription": "Longer, more detailed description for the modal...",
-  "thumbnail": "/src/img/stackmaker/stackmaker-1.PNG",
+  "thumbnail": "/img/stackmaker/stackmaker-1.PNG",
   "colorTheme": "emerald",
   "images": [
-    "/src/img/stackmaker/stackmaker-1.PNG",
-    "/src/img/stackmaker/stackmaker-2.PNG",
-    "/src/img/stackmaker/stackmaker-3.PNG"
+    "/img/stackmaker/stackmaker-1.PNG",
+    "/img/stackmaker/stackmaker-2.PNG",
+    "/img/stackmaker/stackmaker-3.PNG"
   ],
   "technologies": ["Angular", "FastAPI", "OR-Tools"],
   "stats": {
