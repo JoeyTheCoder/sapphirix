@@ -1,0 +1,24 @@
+{
+  "id": 1,
+  "title": "StackMaker",
+  "description": "A responsive portfolio website built with React and Tailwind CSS...",
+  "fullDescription": "Longer, more detailed description for the modal...",
+  "thumbnail": "/src/img/stackmaker/stackmaker-1.PNG",
+  "colorTheme": "emerald",
+  "images": [
+    "/src/img/stackmaker/stackmaker-1.PNG",
+    "/src/img/stackmaker/stackmaker-2.PNG",
+    "/src/img/stackmaker/stackmaker-3.PNG"
+  ],
+  "technologies": ["Angular", "FastAPI", "OR-Tools"],
+  "stats": {
+    "devTime": "2 months",
+    "role": "Full Stack Developer",
+    "lastUpdated": "Jan 2023",
+    "status": "Active"
+  },
+  "links": {
+    "live": "https://stackmaker.example.com",
+    "github": "https://github.com/JoeyTheCoder/stackmaker"
+  }
+}

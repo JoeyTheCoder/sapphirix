@@ -1,4 +1,282 @@
 @import "tailwindcss";
 
 /* Your custom CSS can go here */
+.bg-sapphire-900 {
+  background-color: var(--sapphire-900);
+}
 
+.bg-sapphire-800 {
+  background-color: var(--sapphire-800);
+}
+
+.bg-sapphire-700 {
+  background-color: var(--sapphire-700);
+}
+
+.bg-sapphire-600 {
+  background-color: var(--sapphire-600);
+}
+
+.from-sapphire-800 {
+  --tw-gradient-from: var(--sapphire-800);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(21, 42, 78, 0));
+}
+
+.to-sapphire-900 {
+  --tw-gradient-to: var(--sapphire-900);
+}
+
+/* Gallery thumbnail hover effect */
+.gallery-thumbnail {
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.gallery-thumbnail:hover, 
+.gallery-thumbnail.active {
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px white;
+}
+
+/* Modal animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-open {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Project card gradients */
+.project-gradient-1 {
+  background: linear-gradient(135deg, var(--sapphire-800), var(--sapphire-600));
+}
+
+.project-gradient-2 {
+  background: linear-gradient(135deg, #2a3f6a, #47688a);
+}
+
+.project-gradient-3 {
+  background: linear-gradient(135deg, #334a78, #5d85b0);
+}
+
+.project-gradient-4 {
+  background: linear-gradient(135deg, #1e2c4e, #3a5584);
+}
+
+/* Screenshot container with gradient overlay */
+.screenshot-container {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.screenshot-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.screenshot-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .screenshot-container img {
+  transform: scale(1.05);
+}
+
+.project-card:hover .screenshot-container::after {
+  opacity: 0;
+}
+
+/* Apply gradient overlay to each project */
+.project-1 .screenshot-container::after {
+  background: linear-gradient(135deg, var(--sapphire-800), var(--sapphire-600));
+}
+
+.project-2 .screenshot-container::after {
+  background: linear-gradient(135deg, #2a3f6a, #47688a);
+}
+
+.project-3 .screenshot-container::after {
+  background: linear-gradient(135deg, #334a78, #5d85b0);
+}
+
+.project-4 .screenshot-container::after {
+  background: linear-gradient(135deg, #1e2c4e, #3a5584);
+}
+
+/* Modal gallery improvements */
+.modal-gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.modal-main-image {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: transform 0.5s ease;
+}
+
+.modal-main-image:hover img {
+  transform: scale(1.02);
+}
+
+/* Support button glow effect */
+.support-button {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.support-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+/* Glowing button effect */
+.glow-wrapper {
+  position: relative;
+  display: inline-flex;
+  border-radius: 9999px; /* Full rounded to match your button */
+  padding: 2px; /* Creates space for the glow */
+}
+
+.glow-wrapper {
+  background: linear-gradient(var(--gradient-angle), var(--sapphire-500), #ffffff);
+  animation: rotation 3s linear infinite;
+}
+
+/* Make sure the button fits properly within the wrapper */
+.glow-wrapper .support-button {
+  margin: 0;
+  z-index: 1;
+}
+
+/* Animation for rotating gradient */
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+/* Required for the gradient angle animation */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Support section styles */
+.coffee-icon {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+#support .glow-wrapper .support-button {
+  font-size: 1.1rem;
+  padding: 0.75rem 2rem;
+}
+
+#support .glow-wrapper:hover + .coffee-icon {
+  transform: translateY(-5px) rotate(5deg);
+}
+
+/* Enhance the existing float animation for the coffee cup */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+:root {
+  /* Existing sapphire colors might already be defined elsewhere */
+  --sapphire-900: #0f172a;
+  --sapphire-800: #1e293b;
+  --sapphire-700: #334155;
+  --sapphire-600: #475569;
+  --sapphire-500: #64748b;
+  
+  /* New emerald theme */
+  --emerald-900: #064e3b;
+  --emerald-800: #065f46;
+  --emerald-700: #047857;
+  --emerald-600: #059669;
+  --emerald-500: #10b981;
+  
+  /* Amber theme */
+  --amber-900: #78350f;
+  --amber-800: #92400e;
+  --amber-700: #b45309;
+  --amber-600: #d97706;
+  --amber-500: #f59e0b;
+  
+  /* Violet theme */
+  --violet-900: #4c1d95;
+  --violet-800: #5b21b6;
+  --violet-700: #6d28d9;
+  --violet-600: #7c3aed;
+  --violet-500: #8b5cf6;
+  
+  /* Rose theme */
+  --rose-900: #881337;
+  --rose-800: #9f1239;
+  --rose-700: #be123c;
+  --rose-600: #e11d48;
+  --rose-500: #f43f5e;
+  
+  /* Cyan theme */
+  --cyan-900: #164e63;
+  --cyan-800: #155e75;
+  --cyan-700: #0e7490;
+  --cyan-600: #0891b2;
+  --cyan-500: #06b6d4;
+}

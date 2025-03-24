@@ -132,6 +132,60 @@
       .delay-700 {
         animation-delay: 0.7s;
       }
+      
+      /* Glowing button effect */
+      .glow-wrapper {
+        position: relative;
+        display: inline-flex;
+        border-radius: 9999px; /* Full rounded to match your button */
+        padding: 2px; /* Creates space for the glow */
+      }
+
+      .glow-wrapper:hover {
+        background: linear-gradient(var(--gradient-angle), var(--sapphire-500), #ffffff);
+        animation: rotation 3s linear infinite;
+      }
+
+      /* Make sure the button fits properly within the wrapper */
+      .glow-wrapper .support-button {
+        margin: 0;
+        z-index: 1;
+      }
+
+      /* Animation for rotating gradient */
+      @keyframes rotation {
+        0% {
+          --gradient-angle: 0deg;
+        }
+        100% {
+          --gradient-angle: 360deg;
+        }
+      }
+
+      /* Required for the gradient angle animation */
+      @property --gradient-angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+      }
+
+      /* Fallback for browsers that don't support @property */
+      @supports not (animation-timeline: scroll()) {
+        .glow-wrapper:hover {
+          background: linear-gradient(90deg, var(--sapphire-500), #ffffff, var(--sapphire-500));
+          background-size: 200% 100%;
+          animation: gradientMove 3s linear infinite;
+        }
+        
+        @keyframes gradientMove {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 200% 50%;
+          }
+        }
+      }
     </style>
   </head>
   <body class="text-white overflow-x-hidden bg-pattern">
@@ -159,9 +213,12 @@
           
           <!-- Contact button -->
           <div class="flex items-center">
-            <a href="#" class="rounded-full px-4 py-1.5 md:py-2 text-sm md:text-base font-medium mr-2 md:mr-0" style="background-color: var(--sapphire-700);">
-              Support Me!
-            </a>
+            <!-- Wrap your existing button in this div -->
+            <div class="glow-wrapper">
+              <a href="#support" class="support-button rounded-full px-4 py-1.5 md:py-2 text-sm md:text-base font-medium mr-2 md:mr-0" style="background-color: var(--sapphire-700);">
+                Support Me!
+              </a>
+            </div>
             
             <!-- Mobile menu button -->
             <button id="mobile-menu-button" class="md:hidden ml-3">
@@ -241,11 +298,14 @@
         <div class="container mx-auto px-4">
           <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center animate-scaleIn">My Projects</h2>
           
+          <!-- Project Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Project 1 -->
-            <div class="rounded-xl overflow-hidden shadow-lg animate-fadeInUp delay-100 group transition-all duration-300 hover:-translate-y-2" style="background-color: var(--sapphire-700);">
-              <div class="h-52 overflow-hidden">
-                <img src="/src/img/stackmaker-preview.PNG" alt="Project 1 Screenshot" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+            <div class="project-card project-1 rounded-xl overflow-hidden shadow-lg animate-fadeInUp delay-100 group transition-all duration-300 hover:-translate-y-2 cursor-pointer" 
+                 data-project-id="1" 
+                 style="background-color: var(--sapphire-700);">
+              <div class="screenshot-container h-52 overflow-hidden">
+                <img src="/src/img/stackmaker/stackmaker-1.PNG" alt="Project 1 Screenshot" class="w-full h-full object-cover">
               </div>
               <div class="p-6">
                 <h4 class="font-bold text-xl mb-2">StackMaker</h4>
@@ -255,11 +315,11 @@
                   <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Tailwind</span>
                   <span class="px-2 py-1 text-xs rounded-full" style="background-color: var(--sapphire-600);">Responsive</span>
                 </div>
-                <a href="#" class="inline-flex items-center text-blue-300 text-sm font-medium hover:text-blue-100 transition-colors">
-                  View Project <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button class="inline-flex items-center text-blue-300 text-sm font-medium hover:text-blue-100 transition-colors">
+                  View Details <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
             
@@ -378,8 +438,115 @@
         </div>
       </section>
       
+      <!-- Support Me Section -->
+      <section id="support" class="py-16 md:py-24" style="background-color: var(--sapphire-800);">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-scaleIn">Support My Work</h2>
+            
+            <p class="text-lg text-gray-300 mb-8 animate-fadeInUp delay-100">
+              If you appreciate my projects and would like to support my future work, 
+              consider buying me a coffee. Your support helps me continue creating 
+              high-quality, free applications and websites.
+            </p>
+            
+            <div class="animate-fadeInUp delay-300">
+              <div class="glow-wrapper inline-block">
+                <a href="https://Ko-fi.com/sapphirix" target="_blank" class="support-button rounded-full px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-medium flex items-center justify-center" style="background-color: var(--sapphire-700);">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/>
+                  </svg>
+                  Buy Me a Coffee
+                </a>
+              </div>
+            </div>
+            
+            <p class="text-sm text-gray-400 mt-6 animate-fadeInUp delay-400">
+              Your generosity fuels both my creativity and my coffee addiction!
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Project Detail Modal -->
+      <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
+        <div class="bg-gradient-to-br from-sapphire-800 to-sapphire-900 rounded-xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-auto mx-4 animate-scaleIn">
+          <!-- Close button -->
+          <div class="flex justify-end p-4">
+            <button id="close-modal" class="text-white hover:text-blue-300 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Modal content -->
+          <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Project details - left side -->
+            <div>
+              <h3 id="modal-title" class="text-3xl font-bold mb-4">Project Title</h3>
+              <p id="modal-description" class="text-gray-300 mb-6">Detailed project description goes here.</p>
+              
+              <!-- Project stats -->
+              <div class="mb-6">
+                <h4 class="text-xl font-bold mb-3">Project Statistics</h4>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="p-4 rounded-lg" style="background-color: var(--sapphire-700);">
+                    <p class="text-sm text-gray-300">Development Time</p>
+                    <p id="modal-dev-time" class="text-xl font-bold">2 months</p>
+                  </div>
+                  <div class="p-4 rounded-lg" style="background-color: var(--sapphire-700);">
+                    <p class="text-sm text-gray-300">Role</p>
+                    <p id="modal-role" class="text-xl font-bold">Full Stack Developer</p>
+                  </div>
+                  <div class="p-4 rounded-lg" style="background-color: var(--sapphire-700);">
+                    <p class="text-sm text-gray-300">Last Updated</p>
+                    <p id="modal-updated" class="text-xl font-bold">Jan 2023</p>
+                  </div>
+                  <div class="p-4 rounded-lg" style="background-color: var(--sapphire-700);">
+                    <p class="text-sm text-gray-300">Status</p>
+                    <p id="modal-status" class="text-xl font-bold">Active</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Technologies -->
+              <div class="mb-6">
+                <h4 class="text-xl font-bold mb-3">Technologies Used</h4>
+                <div id="modal-technologies" class="flex flex-wrap gap-2">
+                  <!-- Technologies will be added dynamically -->
+                </div>
+              </div>
+              
+              <!-- Actions -->
+              <div class="flex gap-4">
+                <a id="modal-live-link" href="#" target="_blank" class="px-5 py-2.5 bg-white text-black font-medium rounded-full text-sm hover:bg-gray-200 transition duration-300">
+                  View Live
+                </a>
+                <a id="modal-github-link" href="#" target="_blank" class="px-5 py-2.5 flex items-center text-white font-medium rounded-full text-sm border border-white hover:border-blue-300 hover:text-blue-300 transition duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                  GitHub Repo
+                </a>
+              </div>
+            </div>
+            
+            <!-- Image gallery - right side -->
+            <div>
+              <div id="modal-main-image" class="mb-4 rounded-lg overflow-hidden h-64 bg-sapphire-600">
+                <img src="" alt="Project Screenshot" class="w-full h-full object-cover">
+              </div>
+              <div id="modal-gallery" class="grid grid-cols-3 gap-2">
+                <!-- Thumbnail images will be added dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <!-- Footer with Contact Form -->
-      <footer class="py-16 md:py-24" style="background-color: var(--sapphire-800);">
+      <footer class="py-16 md:py-24" style="background-color: var(--sapphire-900);">
         <div class="container mx-auto px-4">
           <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center animate-scaleIn">Contact Me</h2>
@@ -418,19 +585,19 @@
                 <div class="mb-8 text-center md:text-left">
                   <h3 class="text-xl font-bold mb-4">Social Media</h3>
                   <div class="flex space-x-4 justify-center md:justify-start">
-                    <a href="#" class="text-white hover:text-blue-400 transition">
+                    <a href="https://github.com/JoeyTheCoder" target="_blank" class="text-white hover:text-blue-400 transition">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                       </svg>
                     </a>
-                    <a href="#" class="text-white hover:text-blue-400 transition">
+                    <a href="https://www.instagram.com/sapphirix14/" target="_blank" class="text-white hover:text-blue-400 transition">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.072-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                       </svg>
                     </a>
-                    <a href="#" class="text-white hover:text-blue-400 transition">
+                    <a href="https://x.com/sapphirix14" target="_blank" class="text-white hover:text-blue-400 transition">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z"/>
                       </svg>
                     </a>
                   </div>
@@ -486,5 +653,7 @@
         animateOnScroll();
       });
     </script>
+
+    <script module="module" src="/src/js/modal.js"></script>
   </body>
 </html>

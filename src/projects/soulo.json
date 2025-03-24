@@ -1,0 +1,26 @@
+{
+    "id": 3,
+    "title": "SOULOMUSIC",
+    "description": "A sleek portfolio website for a musician",
+    "fullDescription": "Longer, more detailed description for the modal...",
+    "thumbnail": "/src/img/soulo/SOULO.png",
+    "colorTheme": "cyan",
+    "images": [
+      "/src/img/soulo/SOULO.png",
+      "/src/img/soulo/SOULO (1).png",
+      "/src/img/soulo/SOULO (2).png",
+      "/src/img/soulo/SOULO (3).png",
+      "/src/img/soulo/SOULO (4).png"
+    ],
+    "technologies": ["Vite", "Tailwind", "Materialize"],
+    "stats": {
+      "devTime": "2 months",
+      "role": "Full Stack Developer",
+      "lastUpdated": "Jan 2023",
+      "status": "Active"
+    },
+    "links": {
+      "live": "https://game-ratings.sapphirix.ch",
+      "github": "https://github.com/JoeyTheCoder/game-rankings"
+    }
+  }

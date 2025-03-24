@@ -1,0 +1,22 @@
+{
+  "id": 2,
+  "title": "Game-Ratings",
+  "description": "A website for two brothers to track their gaming progress.",
+  "fullDescription": "Longer, more detailed description for the modal...",
+  "thumbnail": "/src/img/game-ratings/game-ratings-1.jpg",
+  "colorTheme": "rose",
+  "images": [
+    "/src/img/game-ratings/game-ratings-1.jpg"
+  ],
+  "technologies": ["Vite", "Tailwind", "Google-Docs-API"],
+  "stats": {
+    "devTime": "2 months",
+    "role": "Full Stack Developer",
+    "lastUpdated": "Jan 2023",
+    "status": "Active"
+  },
+  "links": {
+    "live": "https://game-ratings.sapphirix.ch",
+    "github": "https://github.com/JoeyTheCoder/game-rankings"
+  }
+}
