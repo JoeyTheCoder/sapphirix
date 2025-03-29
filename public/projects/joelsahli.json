@@ -3,10 +3,13 @@
     "title": "Joel Sahli",
     "description": "A professionalportfolio for a Fullstack Developer",
     "fullDescription": "Longer, more detailed description for the modal...",
-    "thumbnail": "/img/game-ratings/game-ratings-1.jpg",
-    "colorTheme": "rose",
+    "thumbnail": "/img/joelsahli/js1.png",
+    "colorTheme": "sapphire",
     "images": [
-      "/img/game-ratings/game-ratings-1.jpg"
+      "/img/joelsahli/js1.png",
+      "/img/joelsahli/js2.png",
+      "/img/joelsahli/js3.png",
+      "/img/joelsahli/js4.png"
     ],
     "technologies": ["Vite", "Tailwind", "Google-Docs-API"],
     "stats": {
