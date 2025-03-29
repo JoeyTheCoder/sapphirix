@@ -1,0 +1,22 @@
+{
+    "id": 4,
+    "title": "Joel Sahli",
+    "description": "A professionalportfolio for a Fullstack Developer",
+    "fullDescription": "Longer, more detailed description for the modal...",
+    "thumbnail": "/img/game-ratings/game-ratings-1.jpg",
+    "colorTheme": "rose",
+    "images": [
+      "/img/game-ratings/game-ratings-1.jpg"
+    ],
+    "technologies": ["Vite", "Tailwind", "Google-Docs-API"],
+    "stats": {
+      "devTime": "2 months",
+      "role": "Full Stack Developer",
+      "lastUpdated": "Jan 2023",
+      "status": "Active"
+    },
+    "links": {
+      "live": "https://game-ratings.sapphirix.ch",
+      "github": "https://github.com/JoeyTheCoder/game-rankings"
+    }
+  }
